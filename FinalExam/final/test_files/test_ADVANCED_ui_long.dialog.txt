@@ -1,0 +1,103 @@
+
+``1;one;1``.
+``2;two;1``.
+``3;three;1``.
+``4;four;1``.
+<<2>>
+<<chores>>
+
+
+``1;one;1``.
+``2;two;1``.
+``3;three;1``.
+``4;four;1``.
+<<3>>
+<<dishes>>
+<<chores>>
+
+
+``1;one;1``.
+``2;two;1``.
+``3;three;1``.
+``4;four;1``.
+<<3>>
+<<rinse dishes>>
+<<dishes>>
+
+
+``1;one;1``.
+``2;two;1``.
+``3;three;1``.
+``4;four;1``.
+<<3>>
+<<load dishwasher>>
+<<dishes>>
+
+
+``1;one;1``.
+``2;two;1``.
+``3;three;1``.
+``4;four;1``.
+<<3>>
+<<empty dishwasher>>
+<<dishes>>
+
+
+``1;one;1``.
+``2;two;1``.
+``3;three;1``.
+``4;four;1``.
+<<3>>
+<<vaccuum>>
+<<chores>>
+
+
+``1;one;1``.
+``2;two;1``.
+``3;three;1``.
+``4;four;1``.
+<<2>>
+<<journal>>
+
+
+``1;one;1``.
+``2;two;1``.
+``3;three;1``.
+``4;four;1``.
+<<2>>
+<<piano practice>>
+
+
+``1;one;1``.
+``2;two;1``.
+``3;three;1``.
+``4;four;1``.
+<<3>>
+<<practice new hymns>>
+<<piano practice>>
+
+
+``1;one;1``.
+``2;two;1``.
+``3;three;1``.
+``4;four;1``.
+<<1>>
+``chores;main;7``
+``    dishes;sub1;7``
+``        rinse dishes;sub2;7``
+``        load dishwasher;sub2;7``
+``        empty dishwasher;sub2;7``
+``    vaccuum;sub1;7``
+
+``journal;main;3``
+
+``piano practice;main;4``
+``    practice new hymns;main;7``
+
+
+
+``1;one;1``.
+``2;two;1``.
+``3;three;1``.
+``4;four;1``.
+<<4>>
