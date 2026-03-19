@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison Report</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            flex-direction: column;
+            font-family: monospace, sans-serif;
+            line-height: 1.4;
+            background-color: #f9f9f9;
+            color: rgb(0, 46, 93);
+        }
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        header, footer {
+            background-color: rgb(0, 46, 93);
+            color: white;
+            text-align: center;
+        }
+        header h1, footer p {
+            margin: 0;
+            padding: 5px 0;
+        }
+        header {
+            margin-bottom: 10px;
+        }
+        footer {
+            margin-top: 10px;
+        }
+        h2 {
+            padding: 5px 0;
+        }
+        .test-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 50px;
+            font-size: 1em;
+            font-weight: bold;
+        }
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+        .test-result-passed, .test-result-failed {
+            padding: 5px;
+            border-radius: 5px;
+            margin: 10px 50px;
+            position: relative;
+        }
+        .test-result-passed {
+            background-color: #d4edda;
+            border: 2px solid #c3e6cb;
+        }
+        .test-result-failed {
+            background-color: #f8d7da;
+            border: 2px solid #f5c6cb;
+        }
+        .result-header {
+            text-align: center;
+        }
+        .result-header h2 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .result-subheader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+            font-size: 1em;
+            padding: 0 10px;
+        }
+        .result-subheader .status, .result-subheader .score {
+            font-size: 1em;
+        }
+        .result-subheader .status h2, .result-subheader .score h2 {
+            display: inline;
+            font-size: 1em;
+            margin-right: 5px;
+        }
+        .comparison-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding: 0 10px;
+
+        }
+        @media (max-width: 1500px) {
+            .comparison-container {
+                flex-direction: column;
+            }
+        }
+        .section {
+            flex: 1;
+            min-width: 400px;
+        }
+        .section strong {
+            font-size: 1em;
+        }
+        .content {
+            background: rgb(245, 245, 245);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+        .test-info {
+            margin: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <h1>Project01 Results</h1>
+        </header>
+        <main class="main-content">
+            <div class="test-summary">
+                <span>Passed: 9 / 13</span>
+                <span>Total Score: 50.0 / 90.0</span>
+            </div>
+            
+            
+            <div class="test-result-passed">
+                <div class="content-wrapper">
+                    <div class="result-header">
+                        <h2>Test Display Image</h2>
+                        <div class="result-subheader">
+                            <div class="status">
+                                <h2>Status:</h2> Passed
+                            </div>
+                            <div class="score">
+                                <h2>Score:</h2> 15 / 15
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="comparison-container-empty"></div>
+                    
+                </div>
+            </div>
+            
+            <div class="test-result-passed">
+                <div class="content-wrapper">
+                    <div class="result-header">
+                        <h2>Test Darken Filter 1</h2>
+                        <div class="result-subheader">
+                            <div class="status">
+                                <h2>Status:</h2> Passed
+                            </div>
+                            <div class="score">
+                                <h2>Score:</h2> 2.5 / 2.5
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="comparison-container-empty"></div>
+                    
+                </div>
+            </div>
+            
+            <div class="test-result-passed">
+                <div class="content-wrapper">
+                    <div class="result-header">
+                        <h2>Test Darken Filter 2</h2>
+                        <div class="result-subheader">
+                            <div class="status">
+                                <h2>Status:</h2> Passed
+                            </div>
+                            <div class="score">
+                                <h2>Score:</h2> 2.5 / 2.5
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="comparison-container-empty"></div>
+                    
+                </div>
+            </div>
+            
+            <div class="test-result-passed">
+                <div class="content-wrapper">
+                    <div class="result-header">
+                        <h2>Test Sepia Filter</h2>
+                        <div class="result-subheader">
+                            <div class="status">
+                                <h2>Status:</h2> Passed
+                            </div>
+                            <div class="score">
+                                <h2>Score:</h2> 5 / 5
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="comparison-container-empty"></div>
+                    
+                </div>
+            </div>
+            
+            <div class="test-result-passed">
+                <div class="content-wrapper">
+                    <div class="result-header">
+                        <h2>Test Grayscale Filter</h2>
+                        <div class="result-subheader">
+                            <div class="status">
+                                <h2>Status:</h2> Passed
+                            </div>
+                            <div class="score">
+                                <h2>Score:</h2> 5 / 5
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="comparison-container-empty"></div>
+                    
+                </div>
+            </div>
+            
+            <div class="test-result-passed">
+                <div class="content-wrapper">
+                    <div class="result-header">
+                        <h2>Test Border Filter 1</h2>
+                        <div class="result-subheader">
+                            <div class="status">
+                                <h2>Status:</h2> Passed
+                            </div>
+                            <div class="score">
+                                <h2>Score:</h2> 2.5 / 2.5
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="comparison-container-empty"></div>
+                    
+                </div>
+            </div>
+            
+            <div class="test-result-passed">
+                <div class="content-wrapper">
+                    <div class="result-header">
+                        <h2>Test Border Filter 2</h2>
+                        <div class="result-subheader">
+                            <div class="status">
+                                <h2>Status:</h2> Passed
+                            </div>
+                            <div class="score">
+                                <h2>Score:</h2> 2.5 / 2.5
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="comparison-container-empty"></div>
+                    
+                </div>
+            </div>
+            
+            <div class="test-result-passed">
+                <div class="content-wrapper">
+                    <div class="result-header">
+                        <h2>Test Flip Filter</h2>
+                        <div class="result-subheader">
+                            <div class="status">
+                                <h2>Status:</h2> Passed
+                            </div>
+                            <div class="score">
+                                <h2>Score:</h2> 5 / 5
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="comparison-container-empty"></div>
+                    
+                </div>
+            </div>
+            
+            <div class="test-result-passed">
+                <div class="content-wrapper">
+                    <div class="result-header">
+                        <h2>Test Mirror Filter</h2>
+                        <div class="result-subheader">
+                            <div class="status">
+                                <h2>Status:</h2> Passed
+                            </div>
+                            <div class="score">
+                                <h2>Score:</h2> 10 / 10
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="comparison-container-empty"></div>
+                    
+                </div>
+            </div>
+            
+            <div class="test-result-failed">
+                <div class="content-wrapper">
+                    <div class="result-header">
+                        <h2>Test Collage Filter 1</h2>
+                        <div class="result-subheader">
+                            <div class="status">
+                                <h2>Status:</h2> Failed
+                            </div>
+                            <div class="score">
+                                <h2>Score:</h2> 0 / 10
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-container">
+                        <div class="section">
+                            <p><strong>Output</strong></p>
+                            <div class="content">
+                                <pre>@functools.wraps(func)
+    def inner_func():
+        run_python_script(this_folder / 'image_processing.py', *script_args)
+>       compare_images(observed_file, key_file)
+
+test_project1.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+test_project1.py:10: in compare_images
+    observed = PILImage.open(obs).convert('RGB')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+fp = WindowsPath('C:/Users/matth/Desktop/Programming Projects/CS 111 BYU Fall Semester/Projects/Project1/project01/project01/collage-1.output.png'), mode = 'r', formats = ['BMP', 'DIB', 'GIF', 'JPEG', 'PPM', 'PNG']
+
+    def open(
+        fp: StrOrBytesPath | IO[bytes],
+        mode: Literal["r"] = "r",
+        formats: list[str] | tuple[str, ...] | None = None,
+    ) -> ImageFile.ImageFile:
+        """
+        Opens and identifies the given image file.
+    
+        This is a lazy operation; this function identifies the file, but
+        the file remains open and the actual image data is not read from
+        the file until you try to process the data (or call the
+        :py:meth:`~PIL.Image.Image.load` method).  See
+        :py:func:`~PIL.Image.new`. See :ref:`file-handling`.
+    
+        :param fp: A filename (string), os.PathLike object or a file object.
+           The file object must implement ``file.read``,
+           ``file.seek``, and ``file.tell`` methods,
+           and be opened in binary mode. The file object will also seek to zero
+           before reading.
+        :param mode: The mode.  If given, this argument must be "r".
+        :param formats: A list or tuple of formats to attempt to load the file in.
+           This can be used to restrict the set of formats checked.
+           Pass ``None`` to try all supported formats. You can print the set of
+           available formats by running ``python3 -m PIL`` or using
+           the :py:func:`PIL.features.pilinfo` function.
+        :returns: An :py:class:`~PIL.Image.Image` object.
+        :exception FileNotFoundError: If the file cannot be found.
+        :exception PIL.UnidentifiedImageError: If the image cannot be opened and
+           identified.
+        :exception ValueError: If the ``mode`` is not "r", or if a ``StringIO``
+           instance is used for ``fp``.
+        :exception TypeError: If ``formats`` is not ``None``, a list or a tuple.
+        """
+    
+        if mode != "r":
+            msg = f"bad mode {repr(mode)}"  # type: ignore[unreachable]
+            raise ValueError(msg)
+        elif isinstance(fp, io.StringIO):
+            msg = (  # type: ignore[unreachable]
+                "StringIO cannot be used to open an image. "
+                "Binary data must be used instead."
+            )
+            raise ValueError(msg)
+    
+        if formats is None:
+            formats = ID
+        elif not isinstance(formats, (list, tuple)):
+            msg = "formats must be a list or tuple"  # type: ignore[unreachable]
+            raise TypeError(msg)
+    
+        exclusive_fp = False
+        filename: str | bytes = ""
+        if is_path(fp):
+            filename = os.fspath(fp)
+>           fp = builtins.open(filename, "rb")
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\matth\\Desktop\\Programming Projects\\CS 111 BYU Fall Semester\\Projects\\Project1\\project01\\project01\\collage-1.output.png'
+
+..\..\..\..\.venv\Lib\site-packages\PIL\Image.py:3513: FileNotFoundError</pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="test-result-failed">
+                <div class="content-wrapper">
+                    <div class="result-header">
+                        <h2>Test Collage Filter 2</h2>
+                        <div class="result-subheader">
+                            <div class="status">
+                                <h2>Status:</h2> Failed
+                            </div>
+                            <div class="score">
+                                <h2>Score:</h2> 0 / 10
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-container">
+                        <div class="section">
+                            <p><strong>Output</strong></p>
+                            <div class="content">
+                                <pre>@functools.wraps(func)
+    def inner_func():
+        run_python_script(this_folder / 'image_processing.py', *script_args)
+>       compare_images(observed_file, key_file)
+
+test_project1.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+test_project1.py:10: in compare_images
+    observed = PILImage.open(obs).convert('RGB')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+fp = WindowsPath('C:/Users/matth/Desktop/Programming Projects/CS 111 BYU Fall Semester/Projects/Project1/project01/project01/collage-2.output.png'), mode = 'r', formats = ['BMP', 'DIB', 'GIF', 'JPEG', 'PPM', 'PNG']
+
+    def open(
+        fp: StrOrBytesPath | IO[bytes],
+        mode: Literal["r"] = "r",
+        formats: list[str] | tuple[str, ...] | None = None,
+    ) -> ImageFile.ImageFile:
+        """
+        Opens and identifies the given image file.
+    
+        This is a lazy operation; this function identifies the file, but
+        the file remains open and the actual image data is not read from
+        the file until you try to process the data (or call the
+        :py:meth:`~PIL.Image.Image.load` method).  See
+        :py:func:`~PIL.Image.new`. See :ref:`file-handling`.
+    
+        :param fp: A filename (string), os.PathLike object or a file object.
+           The file object must implement ``file.read``,
+           ``file.seek``, and ``file.tell`` methods,
+           and be opened in binary mode. The file object will also seek to zero
+           before reading.
+        :param mode: The mode.  If given, this argument must be "r".
+        :param formats: A list or tuple of formats to attempt to load the file in.
+           This can be used to restrict the set of formats checked.
+           Pass ``None`` to try all supported formats. You can print the set of
+           available formats by running ``python3 -m PIL`` or using
+           the :py:func:`PIL.features.pilinfo` function.
+        :returns: An :py:class:`~PIL.Image.Image` object.
+        :exception FileNotFoundError: If the file cannot be found.
+        :exception PIL.UnidentifiedImageError: If the image cannot be opened and
+           identified.
+        :exception ValueError: If the ``mode`` is not "r", or if a ``StringIO``
+           instance is used for ``fp``.
+        :exception TypeError: If ``formats`` is not ``None``, a list or a tuple.
+        """
+    
+        if mode != "r":
+            msg = f"bad mode {repr(mode)}"  # type: ignore[unreachable]
+            raise ValueError(msg)
+        elif isinstance(fp, io.StringIO):
+            msg = (  # type: ignore[unreachable]
+                "StringIO cannot be used to open an image. "
+                "Binary data must be used instead."
+            )
+            raise ValueError(msg)
+    
+        if formats is None:
+            formats = ID
+        elif not isinstance(formats, (list, tuple)):
+            msg = "formats must be a list or tuple"  # type: ignore[unreachable]
+            raise TypeError(msg)
+    
+        exclusive_fp = False
+        filename: str | bytes = ""
+        if is_path(fp):
+            filename = os.fspath(fp)
+>           fp = builtins.open(filename, "rb")
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\matth\\Desktop\\Programming Projects\\CS 111 BYU Fall Semester\\Projects\\Project1\\project01\\project01\\collage-2.output.png'
+
+..\..\..\..\.venv\Lib\site-packages\PIL\Image.py:3513: FileNotFoundError</pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="test-result-failed">
+                <div class="content-wrapper">
+                    <div class="result-header">
+                        <h2>Test Greenscreen Filter 1</h2>
+                        <div class="result-subheader">
+                            <div class="status">
+                                <h2>Status:</h2> Failed
+                            </div>
+                            <div class="score">
+                                <h2>Score:</h2> 0 / 10
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-container">
+                        <div class="section">
+                            <p><strong>Output</strong></p>
+                            <div class="content">
+                                <pre>@functools.wraps(func)
+    def inner_func():
+        run_python_script(this_folder / 'image_processing.py', *script_args)
+>       compare_images(observed_file, key_file)
+
+test_project1.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+test_project1.py:10: in compare_images
+    observed = PILImage.open(obs).convert('RGB')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+fp = WindowsPath('C:/Users/matth/Desktop/Programming Projects/CS 111 BYU Fall Semester/Projects/Project1/project01/project01/greenscreen-1.output.png'), mode = 'r', formats = ['BMP', 'DIB', 'GIF', 'JPEG', 'PPM', 'PNG']
+
+    def open(
+        fp: StrOrBytesPath | IO[bytes],
+        mode: Literal["r"] = "r",
+        formats: list[str] | tuple[str, ...] | None = None,
+    ) -> ImageFile.ImageFile:
+        """
+        Opens and identifies the given image file.
+    
+        This is a lazy operation; this function identifies the file, but
+        the file remains open and the actual image data is not read from
+        the file until you try to process the data (or call the
+        :py:meth:`~PIL.Image.Image.load` method).  See
+        :py:func:`~PIL.Image.new`. See :ref:`file-handling`.
+    
+        :param fp: A filename (string), os.PathLike object or a file object.
+           The file object must implement ``file.read``,
+           ``file.seek``, and ``file.tell`` methods,
+           and be opened in binary mode. The file object will also seek to zero
+           before reading.
+        :param mode: The mode.  If given, this argument must be "r".
+        :param formats: A list or tuple of formats to attempt to load the file in.
+           This can be used to restrict the set of formats checked.
+           Pass ``None`` to try all supported formats. You can print the set of
+           available formats by running ``python3 -m PIL`` or using
+           the :py:func:`PIL.features.pilinfo` function.
+        :returns: An :py:class:`~PIL.Image.Image` object.
+        :exception FileNotFoundError: If the file cannot be found.
+        :exception PIL.UnidentifiedImageError: If the image cannot be opened and
+           identified.
+        :exception ValueError: If the ``mode`` is not "r", or if a ``StringIO``
+           instance is used for ``fp``.
+        :exception TypeError: If ``formats`` is not ``None``, a list or a tuple.
+        """
+    
+        if mode != "r":
+            msg = f"bad mode {repr(mode)}"  # type: ignore[unreachable]
+            raise ValueError(msg)
+        elif isinstance(fp, io.StringIO):
+            msg = (  # type: ignore[unreachable]
+                "StringIO cannot be used to open an image. "
+                "Binary data must be used instead."
+            )
+            raise ValueError(msg)
+    
+        if formats is None:
+            formats = ID
+        elif not isinstance(formats, (list, tuple)):
+            msg = "formats must be a list or tuple"  # type: ignore[unreachable]
+            raise TypeError(msg)
+    
+        exclusive_fp = False
+        filename: str | bytes = ""
+        if is_path(fp):
+            filename = os.fspath(fp)
+>           fp = builtins.open(filename, "rb")
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\matth\\Desktop\\Programming Projects\\CS 111 BYU Fall Semester\\Projects\\Project1\\project01\\project01\\greenscreen-1.output.png'
+
+..\..\..\..\.venv\Lib\site-packages\PIL\Image.py:3513: FileNotFoundError</pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="test-result-failed">
+                <div class="content-wrapper">
+                    <div class="result-header">
+                        <h2>Test Greenscreen Filter 2</h2>
+                        <div class="result-subheader">
+                            <div class="status">
+                                <h2>Status:</h2> Failed
+                            </div>
+                            <div class="score">
+                                <h2>Score:</h2> 0 / 10
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-container">
+                        <div class="section">
+                            <p><strong>Output</strong></p>
+                            <div class="content">
+                                <pre>@functools.wraps(func)
+    def inner_func():
+        run_python_script(this_folder / 'image_processing.py', *script_args)
+>       compare_images(observed_file, key_file)
+
+test_project1.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+test_project1.py:10: in compare_images
+    observed = PILImage.open(obs).convert('RGB')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+fp = WindowsPath('C:/Users/matth/Desktop/Programming Projects/CS 111 BYU Fall Semester/Projects/Project1/project01/project01/greenscreen-2.output.png'), mode = 'r', formats = ['BMP', 'DIB', 'GIF', 'JPEG', 'PPM', 'PNG']
+
+    def open(
+        fp: StrOrBytesPath | IO[bytes],
+        mode: Literal["r"] = "r",
+        formats: list[str] | tuple[str, ...] | None = None,
+    ) -> ImageFile.ImageFile:
+        """
+        Opens and identifies the given image file.
+    
+        This is a lazy operation; this function identifies the file, but
+        the file remains open and the actual image data is not read from
+        the file until you try to process the data (or call the
+        :py:meth:`~PIL.Image.Image.load` method).  See
+        :py:func:`~PIL.Image.new`. See :ref:`file-handling`.
+    
+        :param fp: A filename (string), os.PathLike object or a file object.
+           The file object must implement ``file.read``,
+           ``file.seek``, and ``file.tell`` methods,
+           and be opened in binary mode. The file object will also seek to zero
+           before reading.
+        :param mode: The mode.  If given, this argument must be "r".
+        :param formats: A list or tuple of formats to attempt to load the file in.
+           This can be used to restrict the set of formats checked.
+           Pass ``None`` to try all supported formats. You can print the set of
+           available formats by running ``python3 -m PIL`` or using
+           the :py:func:`PIL.features.pilinfo` function.
+        :returns: An :py:class:`~PIL.Image.Image` object.
+        :exception FileNotFoundError: If the file cannot be found.
+        :exception PIL.UnidentifiedImageError: If the image cannot be opened and
+           identified.
+        :exception ValueError: If the ``mode`` is not "r", or if a ``StringIO``
+           instance is used for ``fp``.
+        :exception TypeError: If ``formats`` is not ``None``, a list or a tuple.
+        """
+    
+        if mode != "r":
+            msg = f"bad mode {repr(mode)}"  # type: ignore[unreachable]
+            raise ValueError(msg)
+        elif isinstance(fp, io.StringIO):
+            msg = (  # type: ignore[unreachable]
+                "StringIO cannot be used to open an image. "
+                "Binary data must be used instead."
+            )
+            raise ValueError(msg)
+    
+        if formats is None:
+            formats = ID
+        elif not isinstance(formats, (list, tuple)):
+            msg = "formats must be a list or tuple"  # type: ignore[unreachable]
+            raise TypeError(msg)
+    
+        exclusive_fp = False
+        filename: str | bytes = ""
+        if is_path(fp):
+            filename = os.fspath(fp)
+>           fp = builtins.open(filename, "rb")
+E           FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\matth\\Desktop\\Programming Projects\\CS 111 BYU Fall Semester\\Projects\\Project1\\project01\\project01\\greenscreen-2.output.png'
+
+..\..\..\..\.venv\Lib\site-packages\PIL\Image.py:3513: FileNotFoundError</pre>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+        </main>
+        <footer>
+            <p>Generated by byu_pytest_utils on October 07, 2025 04:36 PM</p>
+        </footer>
+    </div>
+</body>
+</html>
