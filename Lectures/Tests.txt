@@ -1,0 +1,28 @@
+Unit Tests - Testing a small function in code
+Integration Tests - How two different parts work together
+Performance Tests - Speed (How effective is my program)
+Usability Tests - Making sure the user can understand the program
+System Tests - Evaluation if code works together
+
+White-box Testing (AKA Glass-box testing)
+- You know what the code is
+Black-box Testing
+- Testing code you don't know
+
+Unit Testing
+- Testing small parts of code (works properly with good input, properly handles bad input, properly handles false input)
+
+Features of Good Tests
+- Automated and fast
+- Only report errors
+- Tests are independent of each other
+- Try for 100% code coverage
+- Tests error and border cases
+Regression Testing
+
+doctest
+- simple test you can put in the doc strings of functions (""")
+- describe series of commands
+- mimic an interactive python interpreter session
+pytest
+- test via website
