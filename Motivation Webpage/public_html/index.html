@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Motivational Webpage</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            h1,div,p{
+                text-align: center;
+            }
+        </style>
+    </head>
+    
+    <body onload="init()">
+        <h1>Motivational Webpage</h1>
+        <br>
+        <div>
+            <p>Enter the type of motivation you need (Feeling sad, feeling anxiety, etc)</p>
+            <select id="selections">
+                <option></option>
+                <option id="sad">Feeling Sad</option>
+                <option id="worried">Feeling Worried</option>
+                <option id="anxious">Feeling Anxious</option>
+                <option id="alone">Feeling Alone</option>
+            </select>
+            <br>
+            <br>
+            <button id="generate">Generate Quote</button>
+            <br>
+            <br>
+            <p id="quote"></p>
+        </div>
+        <script>
+            const sadnessQuotes = [
+            "Sadness is not a permanent home, only a place you pass through on the way to strength.",
+            "Even the heaviest rain eventually runs out of clouds.",
+            "Your heart hurts because it still hopes.",
+            "Sadness is proof that you are deeply alive.",
+            "Sometimes the tears you shed water the ground you’ll grow from.",
+            "It’s okay to fall apart; that’s how new pieces fit together.",
+            "The darkest nights help you appreciate your own inner light.",
+            "Sadness opens the door to wisdom that joy never teaches.",
+            "Your feelings are real, but they don’t define your future.",
+            "Healing doesn’t shout; it whispers slowly every day.",
+            "You are allowed to pause, but you’re not meant to stay there forever.",
+            "Behind every moment of sorrow stands a chance for renewal.",
+            "You can be broken and still be beautiful.",
+            "Sadness doesn’t weaken you; resisting it does.",
+            "Sometimes the bravest thing you can do is feel everything.",
+            "Even in sadness, you are becoming someone stronger.",
+            "Every difficult emotion is a step toward understanding yourself.",
+            "There is quiet courage in surviving another day.",
+            "Storms don’t last, and neither does the ache they bring.",
+            "Your sadness is not a sign of failure; it’s a sign of caring.",
+            "You don’t have to hide your hurt to be worthy of love.",
+            "Even a heavy heart can learn to beat with hope again.",
+            "Sadness is a season, not the story.",
+            "Let your tears fall; they are evidence of your humanity.",
+            "The heart heals in curves, not straight lines.",
+            "Sadness teaches us to see beauty we once overlooked.",
+            "Where there is pain, there is also potential.",
+            "Your sadness today is part of the strength you’ll carry tomorrow.",
+            "The weight you feel is real, but it is not immovable.",
+            "Allow yourself to rest between waves of emotion.",
+            "Sadness is the shadow that proves there is still light somewhere.",
+            "You are more than the moments that break you.",
+            "Every tear carries away something you no longer need.",
+            "The heart bends far before it breaks—and it can bend back too.",
+            "Even silence can be a step toward healing.",
+            "You can walk slowly and still move forward.",
+            "Sadness often appears where love once lived.",
+            "Your heart may feel tired, but it is still beating for you.",
+            "The edge of sorrow is where hope begins carving new space.",
+            "Letting yourself feel is the beginning of letting yourself heal.",
+            "You don’t have to pretend you’re okay to be strong.",
+            "Sometimes sadness is the mind’s way of clearing room for peace.",
+            "It’s okay if today is heavy; you won’t carry the same weight forever.",
+            "You can rebuild your world one small truth at a time.",
+            "Sadness may slow you, but it cannot stop you.",
+            "There is courage in admitting you’re hurting.",
+            "Your sadness is a chapter, not the ending.",
+            "Even when you feel empty, you are still becoming.",
+            "The sun doesn’t disappear; it only waits for the clouds to pass."
+            ];
+            
+            const worryQuotes = [
+            "Worry is a whisper, not a command; you don’t have to obey it.",
+            "Your future is bigger than the fear you feel right now.",
+            "Worry grows in silence—speak your feelings and it shrinks.",
+            "You are stronger than the thoughts that scare you.",
+            "Even the loudest worries fade when you take one small step forward.",
+            "Your mind is doing its best to protect you, even when it overreacts.",
+            "Worry often imagines disasters that never arrive.",
+            "You don’t need every answer to keep moving.",
+            "Let your breath anchor you when your thoughts drift toward fear.",
+            "Worry shows up when you care deeply about something.",
+            "You can feel worried and still be capable.",
+            "The moment you question your worry, it loses its power.",
+            "Worry may visit, but it doesn't get to stay forever.",
+            "You’ve handled hard moments before; this one is no different.",
+            "Worry is heavy—set it down for a moment and breathe.",
+            "Give your heart permission to calm down even if your mind isn’t ready.",
+            "Worry is a storm that passes faster than it feels.",
+            "You don’t have to be fearless to be brave.",
+            "Each calm breath is a small victory over worry.",
+            "Your worry doesn’t define you; your resilience does.",
+            "The thoughts that scare you are just thoughts, not truths.",
+            "You are allowed to feel overwhelmed and still know you will be okay.",
+            "Worry can’t predict the future; it only magnifies the present.",
+            "Trust that you can handle whatever comes your way.",
+            "Worry loses its edge when you focus on what you can control.",
+            "You deserve peace, even when your mind insists otherwise.",
+            "Worry is a sign you need comfort, not criticism.",
+            "One gentle step at a time is enough.",
+            "Your inner calm is still there beneath the noise.",
+            "You don’t have to reason with every worried thought—let some pass.",
+            "Worry may cloud your vision, but it cannot erase your path.",
+            "Your mind is trying to help; remind it that you’re safe now.",
+            "Even worried hearts can move forward.",
+            "It’s okay to ask for support when your thoughts feel heavy.",
+            "You are learning, not failing, when worry shows up.",
+            "Worry is temporary; your strength is not.",
+            "Sometimes the best response to worry is simply pausing.",
+            "You’ve made it through every worried day so far.",
+            "Your calm will return, even if slowly.",
+            "Worry comes from uncertainty, not from weakness.",
+            "You’re allowed to feel afraid while still choosing hope.",
+            "Your thoughts are loud, but they are not permanent.",
+            "Worry imagines worst-case scenarios; hope imagines possibilities.",
+            "Every moment of peace you create weakens your worry.",
+            "You are not alone in feeling this way.",
+            "Your worry doesn’t mean you’re failing; it means you’re human.",
+            "Let go of the pressure to solve everything at once.",
+            "Even worried steps move you forward.",
+            "There is more strength in you than your worry wants you to believe."
+            ];
+            
+            const aloneQuotes = [
+            "Being alone doesn’t mean you are lonely; it means you are free to grow.",
+            "Solitude is where you discover who you really are.",
+            "Alone time is an opportunity to recharge your soul.",
+            "Being alone can be a gift, not a punishment.",
+            "In solitude, your mind finds clarity and your heart finds peace.",
+            "Sometimes you need to be alone to remember your own worth.",
+            "Being alone is not emptiness; it’s fullness of self.",
+            "Solitude is the canvas where you paint your own dreams.",
+            "Time alone allows you to hear the whispers of your own heart.",
+            "Being comfortable alone is the first step to loving yourself.",
+            "Solitude is the silence in which your soul speaks.",
+            "Sometimes alone is the only place where you can truly be yourself.",
+            "Being alone gives you the power to reconnect with your inner self.",
+            "Alone doesn’t mean weak; it means independent.",
+            "The best conversations sometimes happen with yourself.",
+            "Being alone helps you understand what you really want.",
+            "In solitude, you can let go of what doesn’t serve you.",
+            "Aloneness teaches patience, resilience, and self-love.",
+            "Sometimes the strongest people are the ones who sit alone.",
+            "Being alone gives you clarity that crowds cannot offer.",
+            "Solitude is not emptiness, but a space for inner growth.",
+            "Being alone can be the beginning of your best relationship: with yourself.",
+            "Alone moments are sacred—treat them like treasures.",
+            "You are never truly alone when you have your own mind and heart.",
+            "In being alone, you find your own rhythm and pace.",
+            "Sometimes being alone is the only way to hear your true voice.",
+            "Alone time is where the seeds of creativity grow.",
+            "Being alone teaches you to rely on yourself and trust your instincts.",
+            "Solitude is not loneliness; it’s a refuge for your spirit.",
+            "Being alone gives you space to heal and reflect.",
+            "Alone doesn’t mean abandoned; it means self-sufficient.",
+            "Some of the deepest insights come from being alone.",
+            "Aloneness gives you freedom from expectations of others.",
+            "Being alone allows you to recharge without distractions.",
+            "Time alone strengthens the connection with your own soul.",
+            "Being alone is the pause that leads to inner clarity.",
+            "Solitude gives you a chance to discover your passions.",
+            "Alone is where self-discovery begins.",
+            "Being alone can be peaceful, empowering, and transformative.",
+            "Aloneness allows you to see life from a personal perspective.",
+            "In solitude, you learn patience and self-compassion.",
+            "Alone time helps you understand your true desires and values.",
+            "Being alone is a chance to nurture your mental and emotional health.",
+            "Aloneness is a state of mind, not a condition of life.",
+            "Being alone allows you to reset, reflect, and restart.",
+            "Solitude is a teacher that guides you to self-awareness.",
+            "Alone time can reveal your inner strength and courage.",
+            "Being alone allows you to embrace your own company.",
+            "Aloneness gives you a space to breathe and think clearly.",
+            "Time alone is an investment in yourself.",
+            "Being alone helps you appreciate both your own presence and the presence of others."
+            ];
+            const anxiousQuotes = [
+            "Anxiety is a signal, not a sentence; it tells you to pause and breathe.",
+            "Feeling anxious doesn’t mean you’re weak—it means you care deeply.",
+            "Even when your mind races, your heart can find calm.",
+            "Anxiety is temporary; your strength is permanent.",
+            "You are bigger than the worries in your mind.",
+            "Take a breath; anxiety cannot last forever.",
+            "Your anxious thoughts are visitors, not residents.",
+            "Even small steps forward are victories when anxiety is strong.",
+            "Anxiety is a wave—ride it instead of fighting it.",
+            "It’s okay to feel anxious; it’s okay to ask for help.",
+            "Being anxious doesn’t define you; your courage does.",
+            "Your mind may worry, but your heart knows the truth.",
+            "Sometimes the bravest thing you can do is keep moving despite anxiety.",
+            "Anxiety shows up when you care, not when you fail.",
+            "You don’t have to face your anxious thoughts alone.",
+            "Even in anxious moments, you are still capable and resilient.",
+            "Breathe in peace, breathe out tension.",
+            "Anxiety cannot stop your inner light from shining.",
+            "Feeling anxious is human; overcoming it is extraordinary.",
+            "You are stronger than any scenario your mind creates.",
+            "Anxiety may whisper, but you have the power to respond with calm.",
+            "The present moment is your anchor when anxiety pulls you away.",
+            "Even small breaths are steps toward peace.",
+            "Your anxious feelings are valid, but they are not facts.",
+            "It’s okay to pause, reset, and try again.",
+            "Anxiety is a reminder to care for yourself gently.",
+            "You are not your anxiety; you are the one noticing it.",
+            "Even in anxious moments, growth is happening quietly.",
+            "Your courage is louder than your fear.",
+            "Anxiety fades when you acknowledge it without judgment.",
+            "You have survived anxious days before—you can survive this one too.",
+            "Every calm moment weakens the grip of anxiety.",
+            "Your anxious thoughts are temporary clouds in a vast sky.",
+            "Even anxious hearts can find stillness.",
+            "You are allowed to rest without fixing everything at once.",
+            "Anxiety is a visitor; don’t give it a permanent home.",
+            "Your mind can imagine worst-case scenarios, but your strength is real.",
+            "Every mindful breath is a small victory over worry.",
+            "You are more than the thoughts that make you anxious.",
+            "Anxiety cannot erase your accomplishments or your courage.",
+            "It’s okay to feel uncertain; it doesn’t mean you’re failing.",
+            "Even when your heart races, your resilience runs deeper.",
+            "Anxiety is a wave; learning to float is strength.",
+            "You are not alone in feeling anxious; connection eases the burden.",
+            "Calmness is a muscle—practice it gently every day.",
+            "You don’t have to be perfect to handle anxious thoughts.",
+            "Every moment you face anxiety is proof of your bravery.",
+            "Your inner calm exists even when anxiety tries to hide it.",
+            "Anxiety is not a stop sign; it’s a gentle caution to care for yourself.",
+            "You can acknowledge anxiety and still move forward with courage."
+            ];
+            function init(){
+                document.getElementById("generate").addEventListener("click",generate);                   
+            }
+            function generate(){
+              var selectElement = document.getElementById("selections");
+              var selectedIndex = selectElement.selectedIndex;
+              var selectedOption = selectElement.options[selectedIndex].value;
+              var randomQuote = "";
+              if (selectedOption!== ""){
+                   if(selectedOption === "Feeling Sad"){
+                       randomQuote = sadnessQuotes[Math.floor(Math.random() * sadnessQuotes.length)];
+                       document.getElementById("quote").textContent = randomQuote;                   
+                   }
+                   else if(selectedOption === "Feeling Anxious"){
+                       randomQuote = anxiousQuotes[Math.floor(Math.random() * anxiousQuotes.length)];
+                       document.getElementById("quote").textContent = randomQuote;   
+                   }
+                   else if(selectedOption === "Feeling Worried"){
+                       randomQuote = worryQuotes[Math.floor(Math.random() * worryQuotes.length)];
+                       document.getElementById("quote").textContent = randomQuote;
+                   }
+                   else if(selectedOption === "Feeling Alone"){
+                       randomQuote = aloneQuotes[Math.floor(Math.random() * aloneQuotes.length)];
+                       document.getElementById("quote").textContent = randomQuote;
+                   }
+
+                }        
+            }
+                        
+            
+        </script>
+        
+        
+    </body>
+</html>
